@@ -1,0 +1,77 @@
+Ques 1: Write a function int findMax(const int arr[], int size) that finds and returns the maximum value in an integer array. Test your function with various arrays in the main() function.
+
+#include <iostream>
+using namespace std;
+
+int findMax(const int arr[], int size) {
+    int max = arr[0];
+    
+    for (int i = 1; i < size; ++i) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    
+    return max;
+}
+
+int main() {
+    int size;
+
+    cout << "Enter the number of elements in the array: ";
+    cin >> size;
+
+    if (size <= 0) {
+        cout << "Array size must be positive." << endl;
+    }
+
+    int* arr = new int[size];
+    cout << "Enter " << size << " integer values:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cin >> arr[i];
+    }
+
+    cout << "Maximum value in the array: " << findMax(arr, size) << endl;
+
+
+    return 0;
+}
+
+Ques 2: Write a function bool isPalindrome(const std::string &str) that checks whether a given string is a palindrome (a word, phrase, or sequence that reads the same backward as forward). The function should ignore spaces, punctuation, and case sensitivity. Test your function with various strings in the main() function.
+
+#include <iostream>
+#include <string>
+#include <cctype> 
+using namespace std;
+
+bool isPalindrome(const std::string &str) {
+    string cleaned;
+    
+    for (char ch : str) {
+        if (isalnum(ch)) { 
+            cleaned += tolower(ch);  
+        }
+    }
+    
+    int left = 0;
+    int right = cleaned.size() - 1;
+    while (left < right) {
+        if (cleaned[left] != cleaned[right]) {
+            return false;  
+        }
+        ++left;
+        --right;
+    }
+    
+    return true; 
+}
+
+int main() {
+    cout << "Enter a string: ";
+    string userInput;
+    getline(cin, userInput);
+
+    cout << "\"" << userInput << "\" is a palindrome: " << (isPalindrome(userInput) ? "Yes" : "No") << endl;
+
+    return 0;
+}

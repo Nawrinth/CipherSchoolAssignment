@@ -1,0 +1,88 @@
+Ques 1: You are given an array and target value. Your task is to find the target value that exists in the array. If it exists inside an array then print YES otherwise NO.
+
+#include <iostream>
+using namespace std;
+
+bool isTargetInArray(const int arr[], int size, int target) {
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] == target) {
+            return true;  
+        }
+    }
+    return false;  
+}
+
+int main() {
+    int size;
+
+    cout << "Enter the number of elements in the array: ";
+    cin >> size;
+
+    if (size <= 0) {
+        cout << "Array size must be positive." << endl;
+        return 1;
+    }
+
+    int* arr = new int[size];
+
+    cout << "Enter " << size << " integer values:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cin >> arr[i];
+    }
+
+    int target;
+    cout << "Enter the target value: ";
+    cin >> target;
+
+    if (isTargetInArray(arr, size, target)) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+
+    return 0;
+}
+
+Ques 2: You are given an array and target value. You have to find the index of target value. If target doest exist inside the array then print -1.Assume indexing is 1 based.
+
+#include <iostream>
+using namespace std;
+
+int findTargetIndex(const int arr[], int size, int target) {
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] == target) {
+            return i + 1;  
+        }
+    }
+    return -1;  
+}
+
+int main() {
+    int size;
+
+    cout << "Enter the number of elements in the array: ";
+    cin >> size;
+
+    if (size <= 0) {
+        cout << "Array size must be positive." << endl;
+        return 1; 
+    }
+
+    int* arr = new int[size];
+
+    cout << "Enter " << size << " integer values:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cin >> arr[i];
+    }
+
+    int target;
+    cout << "Enter the target value: ";
+    cin >> target;
+
+    int index = findTargetIndex(arr, size, target);
+    cout << index << endl;
+
+
+    return 0;
+}

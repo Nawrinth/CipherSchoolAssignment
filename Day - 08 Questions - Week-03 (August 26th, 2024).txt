@@ -1,0 +1,82 @@
+Ques 1: Write a function int stringLength(const std::string &str) that returns the length of a given string. Test your function with various strings in the main() function.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int stringLength(const std::string &str) {
+    return str.size(); 
+}
+
+int main() {
+    string userInput;
+
+    cout << "Enter a string: ";
+    getline(cin, userInput); 
+
+    cout << "Length of the entered string is " << stringLength(userInput) << endl;
+
+    return 0;
+}
+
+
+Ques 2: Implement a function int countCharacter(const std::string &str, char ch) that counts the number of occurrences of a specific character in a given string. Test the function with different strings and characters.
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int countCharacter(const std::string &str, char ch) {
+    int count = 0;
+    for (char c : str) {
+        if (c == ch) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    string inputString;
+    char character;
+    cout << "Enter a string: ";
+    getline(cin, inputString);
+
+    cout << "Enter the character to count: ";
+    cin >> character;
+
+    cout << "Number of occurrences of '" << character << "' in the string is " << countCharacter(inputString, character) << endl;
+
+    return 0;
+}
+
+Ques 3: Write a function std::string concatenateStrings(const std::string &str1, const std::string &str2) that concatenates two strings and returns the result. Test the function with various input strings.
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+std::string concatenateStrings(const std::string &str1, const std::string &str2) {
+    return str1 + str2;
+}
+
+int main() {
+    string inputString1, inputString2;
+
+    cout << "Enter the first string: ";
+    getline(cin, inputString1);
+
+    cout << "Enter the second string: ";
+    getline(cin, inputString2);
+
+    cout << "Concatenated string: " << concatenateStrings(inputString1, inputString2) << endl;
+
+    return 0;
+}
+
+
+
